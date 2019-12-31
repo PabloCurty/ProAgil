@@ -28,6 +28,7 @@ namespace ProAgil.WebAPI
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddControllers();
+            services.AddCors();
             //services.AddOpenApiDocument(document => 
             //    document.PostProcess = d => d.Info.Title = "Contacts API");
         }
@@ -54,6 +55,7 @@ namespace ProAgil.WebAPI
             //});
 
             //app.UseHttpsRedirection();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
         }
     }
